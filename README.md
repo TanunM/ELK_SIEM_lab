@@ -25,4 +25,28 @@ To complete this Lab, the following virtual machines are used:
 | Kali Linux              | 2 GB  | 2    | Attack simulation and penetration testing        |
 
 
+## NAT Network Setup & Base Snapshot
+
+### Step 1: Create a NAT Network
+1. Open **VirtualBox** and go to **File --> Tools --> Network → NAT Networks**.
+2. Click **+** to create a new NAT network.
+3. Configure the network:
+   - Name: ELK_lab
+   - Enable **DHCP**
+   - Configure subnet: 10.0.2.0/24
+4. Click **OK** to save the network.
+
+### Step 2: Attach VMs to NAT Network
+1. Select a VM → **Settings → Network → Adapter 1**.
+2. Choose **Attached to:** NAT Network.
+3. Select your NAT network ELK_lab from the dropdown.
+4. Repeat for all VMs.
+
+### Step 3: Power On and Configure VMs
+1. Boot each VM and update them.
+2. Ensure all VMs can communicate with each other using the NAT network.
+
+### Step 4: Take a Base Snapshot
+1. Right-click the VM → **Snapshots → Take Snapshot** and name it.
+3. Repeat for all VMs.
 
