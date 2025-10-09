@@ -12,3 +12,17 @@ The objective of this challenge is to broaden my practical knowledge of SOC thro
 By completing this challenge, I aim to build real-world SOC experience, strengthen my analytical skills, and demonstrate readiness for an entry-level SOC analyst role.
 
 ## Requirment
+To complete this Lab, the following virtual machines are used:
+
+| VM                      | RAM   | Processors| Purpose        |
+|-------------------------|-------|-----------|----------------|
+| ELK Stack               | 8 GB  | 4    | Centralized log collection, analysis, and visualization |
+| Mythic C2 Server        | 3 GB  | 2    | Simulate command & control attacks               |
+| Fleet Server            | 3 GB  | 2    | Endpoint management and log forwarding           |
+| Ubuntu Endpoint         | 3 GB  | 2    | Linux endpoint for log generation and testing    |
+| Windows Server          | 3 GB  | 2    | Windows environment for brute-force/malware analysis |
+| OS Ticket Server        | 2 GB  | 2    | Ticketing system for incident management         |
+| Kali Linux              | 2 GB  | 2    | Attack simulation and penetration testing        |
+
+
+
