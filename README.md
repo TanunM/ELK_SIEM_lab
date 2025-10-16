@@ -28,28 +28,28 @@ To complete this Lab, the following virtual machines are used:
 ## NAT Network Setup & Base Snapshot
 
 ### 1: Create a NAT Network
-1.1. Open **VirtualBox** and go to **File --> Tools --> Network → NAT Networks**.
-1.2. Click **+** to create a new NAT network.
-1.3. Configure the network:
+1. Open **VirtualBox** and go to **File --> Tools --> Network → NAT Networks**.
+2. Click **+** to create a new NAT network.
+3. Configure the network:
    - Name: ELK_lab
    - Enable **DHCP**
    - Configure subnet: 10.0.2.0/24
-1.4. Click **OK** to save the network.
+4. Click **OK** to save the network.
 
 ### 2: Attach VMs to NAT Network
-2.1. Select a VM → **Settings → Network → Adapter 1**.
-2.2. Choose **Attached to:** NAT Network.
-2.3. Select your NAT network ELK_lab from the dropdown.
-2.4. Repeat for all VMs.
+1. Select a VM → **Settings → Network → Adapter 1**.
+2. Choose **Attached to:** NAT Network.
+3. Select your NAT network ELK_lab from the dropdown.
+4. Repeat for all VMs.
 
 ### 3: Power On and Configure VMs
-3.1. Boot each VM and update them.
-3.2. Install the basic utlilites like curl, netplan, openssh-server, openssh-client, etc for all the VMs.
-3.3. Ensure all VMs can communicate with each other using the NAT network.
+1. Boot each VM and update them.
+2. Install the basic utlilites like curl, netplan, openssh-server, openssh-client, default-jre, default-jdk etc for all the VMs.
+3. Ensure all VMs can communicate with each other using the NAT network.
 
 ### 4: Take a Base Snapshot
-4.1. Right-click the VM → **Snapshots → Take Snapshot** and name it.
-4.2. Repeat for all VMs.
+1. Right-click the VM → **Snapshots → Take Snapshot** and name it.
+2. Repeat for all VMs.
 
 ## 
 
