@@ -44,9 +44,13 @@ To complete this Lab, the following virtual machines are used:
 
 ### 3: Power On and Configure VMs
 3.1. Boot each VM and update them.
-3.2. Ensure all VMs can communicate with each other using the NAT network.
+3.2. Install the basic utlilites like curl, netplan, openssh-server, openssh-client, etc for all the VMs.
+3.3. Ensure all VMs can communicate with each other using the NAT network.
 
 ### 4: Take a Base Snapshot
 4.1. Right-click the VM → **Snapshots → Take Snapshot** and name it.
 4.2. Repeat for all VMs.
 
+## 
+
+### 1. 
