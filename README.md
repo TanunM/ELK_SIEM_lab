@@ -204,9 +204,9 @@ Get-Process sysmon64
 9. Finally save and deploy it.
 10. In the exact manner add the Windows Defender to the integration.
 
-<img src=’11’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/11.custom%20win%20event%20log.png'/>
 
-<img src=’12’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/12.%20channel%20name.png'/>
 
 ### osTicket Server Setup
 1. On the osTicket server download xampp from the [official website](https://www.apachefriends.org/download.html)
@@ -216,12 +216,12 @@ Get-Process sysmon64
 5. Configure the xampp properties file located in the xampp folder on the C drive
 6. Change the apache domain name to the osTicket server IP.
 
-<img src=’22’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/22.%20xampp_conf.png'/>
 
 7. Launch xampp control panel and start Apache and MYSQL
 8. Go to phpMyAdmin and create a new database
 
-<img src=’23’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/23.%20php%20new%20db.png'/>
 
 9. Go to home -> User account and change the root account for the host by clicking on the root and changing the password.
 10. Some warning will appear but those are expected.
@@ -229,15 +229,15 @@ Get-Process sysmon64
 12. Change the host name type to “Use text field” and name to osTicket Server IP
 13. Provide the password you set for root and on the bottom click on "keep the old" and then click on go.
 
-<img src=’24’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/24.%20localhost%20root.png'/>
 
 14. Go to the phpMyAdmin folder on xampp and configure the config.inc.php (C:\xampp\phpMyAdmin\config.inc.php) file and change the password
 
-<img src=’25’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/25.%20php%20conf.png'/>
 
 15. Try reconnecting and you will be able to reconnect with no issue
 
-<img src=’26’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/26.%20php%20access%20to%20db.png'/>
 
 16. Make sure that you have full access to the newly created database.
 17. You will be provided two files when you extract osTicket zip. Copy both file and navigate to the htdocs folder of xampp.
@@ -247,21 +247,21 @@ Get-Process sysmon64
 21. In the “upload” folder of the “osticket” folder navigate to “include” and you will find “ost.sample.config” file
 22. Rename the file to “ost-config.php”
 
-<img src=’27’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/27.%20os%20conf.png'/>
 
 23. In the osTicket interface if you click continue you will be prompted to provide some information to complete the basic installation
 24. Fill up the fields by providing the required information
 
-<img src=’28’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/28.%20os%20info.png'/>
 
 25. Click on “install now” and you will be provided with a URL to access osTicket.
 26. You can login using the username and password you set.
 
-<img src=’29’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/29.%20os%20login.png'/>
 
 27. Fill up the System Settings and Preferences information using the osTicket Server IP as the URL (http://(osTicket Server IP)/osticket/upload).
 
-<img src=’30’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/30.%20os%20dashboard.png'/>
 
 28. Go to the manage -> API section  and click on Add New API Key
 29. Provide the IP address of the "ELK Server" in the IP Address section then select "Can Create Tickets" and Add Internal Notes as a reminder of the API key's use.
@@ -273,10 +273,12 @@ Get-Process sysmon64
 35. On the top there is a test option to check if the connection has been correctly configured.
 36. Copy the code from the  [Github repo of osTicket](https://github.com/osTicket/osTicket/blob/develop/setup/doc/api/tickets.md)
 
-<img src=’31’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/31.%20webhook.png'/>
 
 37. Run the test and in the osTicket interface navigate to “Admin panel” and you will see a new Ticket as “Testing API”
-<img src=’32’/>
+
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/32.%20webhook%20test.png'/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/33.%20osticket%20msg.png'/>
 
 ### Configure Mythic Server
 1. First install Docker on the mythic server 
@@ -304,11 +306,11 @@ sudo make
 ```bash
 sudo ./mythic.cli start
 ```
-<img src=’13’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/13.mythic.png'/>
 
 6. It will take some time and when it starts you can access it using the following url “https://(Mythic IP):7443”
 
-<img src=’14’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/14.Mythic%20gui.png'/>
 
 7. The login credentials are randomly generated and can be accessed using the below command
 ```bash
@@ -321,9 +323,9 @@ cat .env
 sudo ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
 sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http 
 ```
-<img src=’15’/>
-<img src=’16’/>
-<img src=’17’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/15.%20payload%20profile.png'/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/16.%20apollo.png'/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/17.%20http.png'/>
 
 11. We are going to make the payload by clicking on the payload icon on the screen and "Generate New Payload" which is on the dropdown of the "ACTIONS" button.
 12. Click on New payload and select the following
@@ -334,7 +336,7 @@ sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http
    * For the callback host select the IP of the Mythic Server.
    * Now select Apollo payload and create the payload 
 
-<img src=’18’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/18.%20create_payload.png'/>
 
 13. Download the payload by clicking on the download icon and copying the payload link address
 14. Go to the command line and type the following
@@ -351,7 +353,7 @@ mv (payload name) svchost-rocks.exe
 ```bash
 python3 -m http.server 9999
 ```
-<img src=’19’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/19.%20payload%20down.png'/>
 
 
 
