@@ -74,7 +74,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable elasticsearch.service
 sudo systemctl start elasticsearch.service
 ```
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/1.%20elasticsearch.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/1.%20elasticsearch.png'/>
 
 ### Kibana on the ELK server
 1. From the official page of [Kibana](https://www.elastic.co/downloads/kibana) copy the link address for deb x86_64 zip file.
@@ -100,7 +100,7 @@ ls
 sudo ./kibana-encryption-keys generate
 ```
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/2.%20kibana.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/2.%20kibana.png'/>
 
 10. Add the keys to the key store by using the below command
 ```bash
@@ -135,38 +135,38 @@ sudo ./kibana-verification-code
 2. Click on add fleet server
 3. Provide the name and the URL is “https://(fleet server ip):8220”
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/3.%20add%20fleet.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/3.%20add%20fleet.png'/>
 
 4. Click on generate policy.
 5. Select the linux.tar command type and copy the command. 
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/4.%20elastic%20agent.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/4.%20elastic%20agent.png'/>
 
 6. On the fleet server command line paste the command to install elastic agent.
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/5.%20fleet_server.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/5.%20fleet_server.png'/>
 
 7. As the agent is installed in the kibana interface you will see a message saying fleet server connected.
 8. Click on continue enrolling elastic agent to add Windows Server and Ubuntu Machine.
 9. In the add agent section add the name for windows server and click on create policy.
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/6.%20policy%20name.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/6.%20policy%20name.png'/>
 
 10. Copy the windows command for the elastic agent
 11. Paste it in the Windows Server PowerShell
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/7.%20win_elastic_agent.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/7.%20win_elastic_agent.png'/>
 
 12. After the agent is installed on the Windows Server and connected to the Fleet Server you will get the confirmation on the kibana interface.
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/8.%20confirmation.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/8.%20confirmation.png'/>
 
 13. Similar to adding Windows agent add the Ubuntu agent by clicking on add agent
 14. Name the agent and click on create policy
 15. Select enroll in Fleet option and the copy the command for linux.tar
 16. Paste the command to the Ubuntu command line and add "--insecure" to the end of the command and press enter.
 
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/10.%20ubuntu_elastic_agent.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/10.%20ubuntu_elastic_agent.png'/>
 
 17. Confirm the agent enrollment and incoming data status.
 
@@ -186,7 +186,7 @@ Get-Process sysmon64
 ```powershell
 .\sysmon64.exe -i sysmonconfig.xml
 ```
-<img src=’https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/9.%20sysmon%20install.png’/>
+<img src='https://github.com/TanunM/ELK_SIEM_lab/blob/main/Gallery/9.%20sysmon%20install.png'/>
 
 ### Enable RDP on Windows Server
 1. Search for Remote Desktop Setting and click on it
